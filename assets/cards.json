@@ -1,0 +1,8 @@
+{
+    "cards": [
+        {"name": "Red 1", "color": "red", "value": 1},
+        {"name": "Red 2", "color": "red", "value": 2},
+        {"name": "Blue 1", "color": "blue", "value": 1},
+        {"name": "Blue 2", "color": "blue", "value": 2}
+    ]
+}
