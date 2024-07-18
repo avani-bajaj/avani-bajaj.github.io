@@ -1,8 +1,25 @@
 {
     "cards": [
+        {"name": "Red 0", "color": "red", "value": 0},
         {"name": "Red 1", "color": "red", "value": 1},
         {"name": "Red 2", "color": "red", "value": 2},
+        {"name": "Red 3", "color": "red", "value": 3},
+        {"name": "Red 4", "color": "red", "value": 4},
+        {"name": "Red 5", "color": "red", "value": 5},
+        {"name": "Red 6", "color": "red", "value": 6},
+        {"name": "Red 7", "color": "red", "value": 7},
+        {"name": "Red 8", "color": "red", "value": 8},
+        {"name": "Red 9", "color": "red", "value": 9},
+        {"name": "Blue 0", "color": "blue", "value": 0},
         {"name": "Blue 1", "color": "blue", "value": 1},
-        {"name": "Blue 2", "color": "blue", "value": 2}
+        {"name": "Blue 2", "color": "blue", "value": 2},
+        {"name": "Blue 3", "color": "blue", "value": 3},
+        {"name": "Blue 4", "color": "blue", "value": 4},
+        {"name": "Blue 5", "color": "blue", "value": 5},
+        {"name": "Blue 6", "color": "blue", "value": 6},
+        {"name": "Blue 7", "color": "blue", "value": 7},
+        {"name": "Blue 8", "color": "blue", "value": 8},
+        {"name": "Blue 9", "color": "blue", "value": 9}
+        // Add more cards as needed
     ]
 }
