@@ -1,73 +1,60 @@
-let socket;
-let playerName;
 let players = [];
-let currentPlayer;
+let currentPlayerIndex = 0;
 let deck;
 let discardPile = [];
-let playerHand = [];
+let playerHands = [];
 
-const playerNameInput = document.getElementById('player-name');
-const joinGameButton = document.getElementById('join-game');
+const playerCountInput = document.getElementById('player-count');
 const startGameButton = document.getElementById('start-game');
-const playerList = document.getElementById('player-list');
 const gameBoard = document.getElementById('game-board');
 const playerHandElement = document.getElementById('player-hand');
+const currentPlayerElement = document.getElementById('current-player');
+const endTurnButton = document.getElementById('end-turn');
 
-joinGameButton.addEventListener('click', joinGame);
 startGameButton.addEventListener('click', startGame);
+endTurnButton.addEventListener('click', endTurn);
 
-function joinGame() {
-    playerName = playerNameInput.value.trim();
-    if (playerName) {
-        socket = io('https://your-server-url.com'); // Replace with your actual server URL
-        socket.emit('join', playerName);
-        
-        socket.on('updatePlayers', (updatedPlayers) => {
-            players = updatedPlayers;
-            updatePlayerList();
-        });
-
-        socket.on('gameStarted', initGame);
-        socket.on('updateGameState', updateGameState);
+function startGame() {
+    const playerCount = parseInt(playerCountInput.value);
+    if (playerCount >= 3 && playerCount <= 10) {
+        initializeGame(playerCount);
+        document.getElementById('setup').style.display = 'none';
+        gameBoard.style.display = 'block';
+    } else {
+        alert('Please enter a number of players between 3 and 10.');
     }
 }
 
-function updatePlayerList() {
-    playerList.innerHTML = '';
-    players.forEach(player => {
-        const playerElement = document.createElement('div');
-        playerElement.textContent = player;
-        playerList.appendChild(playerElement);
-    });
-
-    startGameButton.disabled = players.length < 3;
-}
-
-function startGame() {
-    socket.emit('startGame');
-}
-
-function initGame(gameState) {
+function initializeGame(playerCount) {
     deck = new Deck();
-    currentPlayer = gameState.currentPlayer;
-    playerHand = gameState.playerHand;
-    discardPile = gameState.discardPile;
+    players = Array.from({length: playerCount}, (_, i) => `Player ${i + 1}`);
+    playerHands = players.map(() => []);
 
-    document.getElementById('lobby').style.display = 'none';
-    gameBoard.style.display = 'block';
+    // Deal 7 cards to each player
+    for (let i = 0; i < 7; i++) {
+        for (let j = 0; j < players.length; j++) {
+            playerHands[j].push(deck.drawCard());
+        }
+    }
 
-    renderGameState();
+    discardPile.push(deck.drawCard());
+    currentPlayerIndex = 0;
+    updateGameState();
 }
 
-function renderGameState() {
+function updateGameState() {
+    renderCurrentPlayer();
     renderPlayerHand();
     renderDiscardPile();
-    // Render other game elements
+}
+
+function renderCurrentPlayer() {
+    currentPlayerElement.textContent = `Current Player: ${players[currentPlayerIndex]}`;
 }
 
 function renderPlayerHand() {
     playerHandElement.innerHTML = '';
-    playerHand.forEach(card => {
+    playerHands[currentPlayerIndex].forEach(card => {
         const cardElement = document.createElement('div');
         cardElement.className = 'card';
         cardElement.textContent = card.name;
@@ -89,14 +76,17 @@ function renderDiscardPile() {
 }
 
 function playCard(card) {
-    if (currentPlayer === playerName) {
-        socket.emit('playCard', card);
+    const hand = playerHands[currentPlayerIndex];
+    const cardIndex = hand.findIndex(c => c.name === card.name);
+    if (cardIndex !== -1) {
+        const playedCard = hand.splice(cardIndex, 1)[0];
+        discardPile.push(playedCard);
+        hand.push(deck.drawCard());
+        updateGameState();
     }
 }
 
-function updateGameState(gameState) {
-    currentPlayer = gameState.currentPlayer;
-    playerHand = gameState.playerHand;
-    discardPile = gameState.discardPile;
-    renderGameState();
+function endTurn() {
+    currentPlayerIndex = (currentPlayerIndex + 1) % players.length;
+    updateGameState();
 }
