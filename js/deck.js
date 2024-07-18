@@ -24,7 +24,8 @@ class Deck {
 
     drawCard() {
         if (this.cards.length === 0) {
-            throw new Error('No cards left in the deck');
+            console.warn('No cards left in the deck');
+            return null;
         }
         return this.cards.pop();
     }
