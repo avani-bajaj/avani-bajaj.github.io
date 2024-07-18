@@ -1,7 +1,6 @@
 class Deck {
     constructor() {
         this.cards = [];
-        this.loadCardsFromJSON();
     }
 
     async loadCardsFromJSON() {
@@ -10,6 +9,7 @@ class Deck {
             const data = await response.json();
             this.cards = data.cards;
             this.shuffle();
+            console.log('Deck loaded:', this.cards);
         } catch (error) {
             console.error('Error loading cards:', error);
         }
