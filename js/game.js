@@ -10,14 +10,15 @@ const gameBoard = document.getElementById('game-board');
 const playerHandElement = document.getElementById('player-hand');
 const currentPlayerElement = document.getElementById('current-player');
 const endTurnButton = document.getElementById('end-turn');
+const discardPileElement = document.getElementById('discard-pile');
 
 startGameButton.addEventListener('click', startGame);
 endTurnButton.addEventListener('click', endTurn);
 
-function startGame() {
+async function startGame() {
     const playerCount = parseInt(playerCountInput.value);
     if (playerCount >= 3 && playerCount <= 10) {
-        initializeGame(playerCount);
+        await initializeGame(playerCount);
         document.getElementById('setup').style.display = 'none';
         gameBoard.style.display = 'block';
     } else {
@@ -61,32 +62,33 @@ function renderPlayerHand() {
     playerHands[currentPlayerIndex].forEach(card => {
         const cardElement = document.createElement('div');
         cardElement.className = 'card';
-        cardElement.textContent = card.name;
+        cardElement.textContent = `${card.color} ${card.value}`;
         cardElement.addEventListener('click', () => playCard(card));
         playerHandElement.appendChild(cardElement);
     });
 }
 
 function renderDiscardPile() {
-    const discardPileElement = document.getElementById('discard-pile');
     discardPileElement.innerHTML = '';
     if (discardPile.length > 0) {
         const topCard = discardPile[discardPile.length - 1];
         const cardElement = document.createElement('div');
         cardElement.className = 'card';
-        cardElement.textContent = topCard.name;
+        cardElement.textContent = `${topCard.color} ${topCard.value}`;
         discardPileElement.appendChild(cardElement);
     }
 }
 
 function playCard(card) {
     const hand = playerHands[currentPlayerIndex];
-    const cardIndex = hand.findIndex(c => c.name === card.name);
+    const cardIndex = hand.findIndex(c => c.color === card.color && c.value === card.value);
     if (cardIndex !== -1) {
         const playedCard = hand.splice(cardIndex, 1)[0];
         discardPile.push(playedCard);
-        hand.push(deck.drawCard());
-        updateGameState();
+        if (deck.cards.length > 0) {
+            hand.push(deck.drawCard());
+        }
+        endTurn();
     }
 }
 
