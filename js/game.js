@@ -25,8 +25,10 @@ function startGame() {
     }
 }
 
-function initializeGame(playerCount) {
+async function initializeGame(playerCount) {
     deck = new Deck();
+    await deck.loadCardsFromJSON(); // Wait for the deck to be loaded
+
     players = Array.from({length: playerCount}, (_, i) => `Player ${i + 1}`);
     playerHands = players.map(() => []);
 
@@ -40,6 +42,8 @@ function initializeGame(playerCount) {
     discardPile.push(deck.drawCard());
     currentPlayerIndex = 0;
     updateGameState();
+
+    console.log('Game initialized:', {players, playerHands, discardPile});
 }
 
 function updateGameState() {
