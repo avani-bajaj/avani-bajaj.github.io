@@ -1,62 +1,50 @@
 const timelineItems = [
   {
-    year: "Now",
-    role: "Applied Scientist",
-    company: "Amazon",
-    meta: "Sunnyvale, California",
-    summary:
-      "Current work is centered on applied AI and product-facing machine learning, building systems that connect technical capability to business outcomes.",
-    bullets: [
-      "Focus on applied AI, experimentation, and decision-support workflows.",
-      "Combines model thinking with product judgment rather than treating ML as isolated research.",
-    ],
-  },
-  {
-    year: "2025",
+    year: "Mar 2025 - Present",
     role: "Staff Analyst",
     company: "Intuit",
-    meta: "Mountain View, California",
+    meta: "Latest LinkedIn resume PDF",
     summary:
-      "Worked on growth analysis around GenAI-powered product experiences and internal product metrics, helping teams sharpen where to invest and how to measure impact.",
+      "Performed deep-dive analyses to identify growth opportunities through a GenAI-powered RAG chatbot and defined product metrics and dashboards for stakeholders.",
     bullets: [
-      "Performed deep-dive analysis around GenAI-powered RAG chatbot opportunities.",
-      "Defined key product metrics, built dashboards, and communicated findings to leadership.",
+      "Analyzed growth opportunities around GenAI-powered product experiences.",
+      "Defined and maintained key product metrics and communicated insights to leadership.",
     ],
   },
   {
-    year: "2024",
+    year: "Sept 2024 - Mar 2025",
     role: "Staff Data Scientist",
     company: "AlchemyTech",
-    meta: "United States",
+    meta: "Latest LinkedIn resume PDF",
     summary:
-      "Built scalable ML infrastructure for real-time data and content workflows, connecting backend systems design with practical product performance gains.",
+      "Led implementation of scalable ML infrastructure for real-time data and content generation, with a strong focus on decision-making systems and experimentation.",
     bullets: [
-      "Implemented ML infrastructure using FastAPI, PostgreSQL, and FAISS.",
-      "Drove a 30% increase in system performance while improving decision support.",
+      "Built infrastructure using FastAPI, PostgreSQL, and FAISS.",
+      "Conducted experimentation and causal inference analysis to improve product functionality.",
     ],
   },
   {
-    year: "2023",
+    year: "Nov 2023 - July 2024",
     role: "Senior Data Scientist, Partner Solutions",
     company: "Tarmac.com",
-    meta: "San Jose, California",
+    meta: "Latest LinkedIn resume PDF",
     summary:
-      "Led experimentation, analytics, and model-tuning work for partner solutions with emphasis on false-positive reduction, large-scale analytics, and product decisions.",
+      "Designed, implemented, and analyzed A/B experiments and managed large-scale analytics projects tied to decision-making and partner solutions.",
     bullets: [
-      "Designed A/B experiments and refined a Financial-BERT-based detection workflow.",
-      "Reduced false positives by 15% and improved model accuracy by 12%.",
+      "Fine-tuned trend detection models using Financial-BERT.",
+      "Integrated data-driven decision-making into product processes.",
     ],
   },
   {
-    year: "2021",
+    year: "May 2021 - Sept 2023",
     role: "Senior Data Scientist",
-    company: "Tiger Analytics",
-    meta: "Seattle, Washington",
+    company: "Tiger Analytics Consulting",
+    meta: "Latest LinkedIn resume PDF",
     summary:
-      "Delivered enterprise data science work across forecasting, recommendations, and conversational AI measurement for client-facing business problems.",
+      "Delivered enterprise data science work spanning demand forecasting, recommendation optimization, experimentation, and conversational AI analytics.",
     bullets: [
-      "Built transformer-based demand forecasting models with strong commercial impact.",
-      "Improved recommendation metrics and built dashboards for conversational AI performance.",
+      "Built transformer-based forecasting models and analyzed A/B experiments.",
+      "Developed dashboards and metrics for conversational AI and recommendation systems.",
     ],
   },
 ];
