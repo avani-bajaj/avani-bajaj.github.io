@@ -1,43 +1,63 @@
 const timelineItems = [
   {
-    company: "Amazon",
+    year: "Now",
     role: "Applied Scientist",
-    period: "Current",
-    location: "Sunnyvale, California",
+    company: "Amazon",
+    meta: "Sunnyvale, California",
     summary:
-      "Current role reflected on LinkedIn, focused on applied AI and product-facing machine learning.",
+      "Current work is centered on applied AI and product-facing machine learning, building systems that connect technical capability to business outcomes.",
+    bullets: [
+      "Focus on applied AI, experimentation, and decision-support workflows.",
+      "Combines model thinking with product judgment rather than treating ML as isolated research.",
+    ],
   },
   {
-    company: "Intuit",
+    year: "2025",
     role: "Staff Analyst",
-    period: "2025",
-    location: "Mountain View, California",
+    company: "Intuit",
+    meta: "Mountain View, California",
     summary:
-      "Performed deep-dive product analyses around growth opportunities and GenAI-powered experiences, while defining product metrics and building dashboards for stakeholders.",
+      "Worked on growth analysis around GenAI-powered product experiences and internal product metrics, helping teams sharpen where to invest and how to measure impact.",
+    bullets: [
+      "Performed deep-dive analysis around GenAI-powered RAG chatbot opportunities.",
+      "Defined key product metrics, built dashboards, and communicated findings to leadership.",
+    ],
   },
   {
-    company: "AlchemyTech",
+    year: "2024",
     role: "Staff Data Scientist",
-    period: "2024 – 2025",
-    location: "United States",
+    company: "AlchemyTech",
+    meta: "United States",
     summary:
-      "Built scalable ML infrastructure with FastAPI, PostgreSQL, and FAISS to support real-time data and content generation, improving system performance and user-facing decision support.",
+      "Built scalable ML infrastructure for real-time data and content workflows, connecting backend systems design with practical product performance gains.",
+    bullets: [
+      "Implemented ML infrastructure using FastAPI, PostgreSQL, and FAISS.",
+      "Drove a 30% increase in system performance while improving decision support.",
+    ],
   },
   {
-    company: "Tarmac.com",
+    year: "2023",
     role: "Senior Data Scientist, Partner Solutions",
-    period: "2023 – 2024",
-    location: "San Jose, California",
+    company: "Tarmac.com",
+    meta: "San Jose, California",
     summary:
-      "Led experimentation and analytics work including a Financial-BERT detection workflow, large-scale product analytics, and decision intelligence for partner teams.",
+      "Led experimentation, analytics, and model-tuning work for partner solutions with emphasis on false-positive reduction, large-scale analytics, and product decisions.",
+    bullets: [
+      "Designed A/B experiments and refined a Financial-BERT-based detection workflow.",
+      "Reduced false positives by 15% and improved model accuracy by 12%.",
+    ],
   },
   {
-    company: "Tiger Analytics",
+    year: "2021",
     role: "Senior Data Scientist",
-    period: "2021 – 2023",
-    location: "Seattle, Washington",
+    company: "Tiger Analytics",
+    meta: "Seattle, Washington",
     summary:
-      "Delivered forecasting, recommendation optimization, and conversational AI analytics for enterprise clients across retail and finance.",
+      "Delivered enterprise data science work across forecasting, recommendations, and conversational AI measurement for client-facing business problems.",
+    bullets: [
+      "Built transformer-based demand forecasting models with strong commercial impact.",
+      "Improved recommendation metrics and built dashboards for conversational AI performance.",
+    ],
   },
 ];
 
@@ -45,38 +65,44 @@ const projectItems = [
   {
     title: "GenAI Opportunity Analysis",
     org: "Intuit",
-    blurb:
-      "Analyzed growth opportunities around a GenAI-powered RAG chatbot and translated findings into product decisions and sharper internal spend metrics.",
+    copy:
+      "Mapped product-growth opportunities around a GenAI-powered RAG chatbot, turning exploratory analysis into clearer product priorities and stronger spend visibility.",
+    impact: "Influenced product decisions and internal spend metrics.",
   },
   {
     title: "Real-Time ML Infrastructure",
     org: "AlchemyTech",
-    blurb:
-      "Implemented a FastAPI, PostgreSQL, and FAISS-backed ML system for real-time data handling and content generation, driving a 30% performance lift.",
+    copy:
+      "Built a FastAPI, PostgreSQL, and FAISS-backed architecture for real-time data handling and content generation, improving responsiveness and decision quality.",
+    impact: "Resulted in a 30% increase in system performance.",
   },
   {
-    title: "Financial-BERT Detection Workflow",
+    title: "Financial-BERT Detection Program",
     org: "Tarmac.com",
-    blurb:
-      "Designed and tuned detection models and A/B experiments, reducing false positives by 15% and improving model accuracy by 12%.",
+    copy:
+      "Designed experiments and tuned detection models in a partner-solutions environment where accuracy and false-positive control directly affected workflow quality.",
+    impact: "Reduced false positives by 15% and improved accuracy by 12%.",
   },
   {
     title: "Demand Forecasting for CPG",
     org: "Tiger Analytics",
-    blurb:
-      "Used transformer-based time series models to forecast demand across geographic regions, contributing to an estimated $500K increase in annual sales.",
+    copy:
+      "Used transformer-based time-series modeling to forecast demand across geographies, helping improve planning quality and commercial decision-making.",
+    impact: "Contributed to an estimated $500K increase in annual sales.",
   },
   {
-    title: "Recommendation Uplift Program",
+    title: "Recommendation Uplift",
     org: "Tiger Analytics",
-    blurb:
-      "Improved recommendation performance through structured experimentation, increasing CTR by 1.5% and conversions by 4%.",
+    copy:
+      "Ran structured experimentation to improve recommendation performance, connecting model optimization with measurable engagement and conversion outcomes.",
+    impact: "Improved CTR by 1.5% and conversions by 4%.",
   },
   {
     title: "Conversational AI Measurement",
     org: "Charles Schwab client work",
-    blurb:
-      "Built dashboards and metrics to track chatbot interactions and experiment outcomes, helping reduce false positives by 2% month over month.",
+    copy:
+      "Developed dashboards and measurement logic to monitor chatbot interactions, evaluate experiments, and create clearer product strategy feedback loops.",
+    impact: "Achieved a 2% reduction in false positives month over month.",
   },
 ];
 
@@ -84,32 +110,32 @@ const skillGroups = {
   ml: [
     "Large Language Models",
     "Semantic Search",
-    "A/B Testing",
     "Causal Inference",
+    "Time-Series Forecasting",
     "NLP",
-    "Time Series Forecasting",
-    "Anomaly Detection",
     "Recommendation Systems",
+    "Anomaly Detection",
+    "RAG Systems",
   ],
   analytics: [
-    "Product Analytics",
+    "A/B Testing",
     "Experiment Design",
     "Opportunity Sizing",
     "Metric Design",
-    "Executive Storytelling",
+    "Product Analytics",
     "Dashboarding",
-    "Data Visualization",
+    "Executive Storytelling",
     "Stakeholder Communication",
   ],
   tools: [
+    "Python",
+    "SQL",
     "FastAPI",
     "PostgreSQL",
     "FAISS",
     "Tableau",
     "Power BI",
-    "Python",
-    "SQL",
-    "RAG Systems",
+    "Data Visualization",
   ],
   meta: [
     "Languages: English, Hindi, Tamil",
@@ -122,38 +148,49 @@ const skillGroups = {
 function renderTimeline() {
   const container = document.getElementById("timeline-list");
   timelineItems.forEach((item) => {
-    const card = document.createElement("article");
-    card.className = "timeline-card";
-    card.innerHTML = `
-      <h3>${item.role}</h3>
-      <p class="timeline-meta">${item.company} • ${item.period} • ${item.location}</p>
-      <p class="timeline-copy">${item.summary}</p>
+    const article = document.createElement("article");
+    article.className = "timeline-card";
+    article.innerHTML = `
+      <div class="timeline-side">
+        <span class="timeline-year">${item.year}</span>
+      </div>
+      <div class="timeline-body">
+        <h3 class="timeline-role">${item.role}</h3>
+        <p class="timeline-meta">${item.company} • ${item.meta}</p>
+        <p>${item.summary}</p>
+        <ul>
+          ${item.bullets.map((bullet) => `<li>${bullet}</li>`).join("")}
+        </ul>
+      </div>
     `;
-    container.appendChild(card);
+    container.appendChild(article);
   });
 }
 
 function renderProjects() {
   const container = document.getElementById("project-list");
   projectItems.forEach((item) => {
-    const card = document.createElement("article");
-    card.className = "project-card";
-    card.innerHTML = `
-      <h3>${item.title}</h3>
-      <p class="project-meta">${item.org}</p>
-      <p class="project-copy">${item.blurb}</p>
+    const article = document.createElement("article");
+    article.className = "project-card";
+    article.innerHTML = `
+      <div>
+        <h3>${item.title}</h3>
+        <p class="project-org">${item.org}</p>
+        <p class="project-copy">${item.copy}</p>
+      </div>
+      <p class="project-impact">${item.impact}</p>
     `;
-    container.appendChild(card);
+    container.appendChild(article);
   });
 }
 
-function renderTags(id, items) {
+function renderPills(id, items) {
   const container = document.getElementById(id);
   items.forEach((item) => {
-    const tag = document.createElement("span");
-    tag.className = "tag";
-    tag.textContent = item;
-    container.appendChild(tag);
+    const pill = document.createElement("span");
+    pill.className = "pill";
+    pill.textContent = item;
+    container.appendChild(pill);
   });
 }
 
@@ -168,7 +205,7 @@ function renderMeta() {
 
 renderTimeline();
 renderProjects();
-renderTags("ml-tags", skillGroups.ml);
-renderTags("analytics-tags", skillGroups.analytics);
-renderTags("tools-tags", skillGroups.tools);
+renderPills("ml-tags", skillGroups.ml);
+renderPills("analytics-tags", skillGroups.analytics);
+renderPills("tools-tags", skillGroups.tools);
 renderMeta();
